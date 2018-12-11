@@ -37,7 +37,13 @@ h4 {
   color: #49274a;
   font-size: 16px;
   line-height: 23px;
-  margin-bottom: 0;
+  margin-bottom: .5em;;
+}
+
+h5 {
+  font-size: 70%;
+  margin-left: 4em;
+  margin-right: 4em;
 }
 
 p {
@@ -60,8 +66,13 @@ fieldset {
   padding:2.5rem;
 }
 
-div.youknow {
+
+#qb3 {
+  max-width: 110px;
+  text-align: left;
+  margin: auto;
 }
+
 
 div.bc, div.qc {
   height: 300px;
@@ -75,96 +86,45 @@ div.bc, div.qc {
   margin: auto;
 }
 
-div.questionoptions {
-  padding-left: 8em;
-  text-align: left;
+#q6a, #q6b, #q6c {
+  text-align: right;
+  max-width: 300px;
+}
+input {
+  font-size: .8em;
 }
 
-div.questionoptionsspecial {
-  padding-left: 4em;
-  text-align: left;
+#b6 {
+  font-size: .8em;
+  padding-top: 0;
+  padding-bottom: 100px;
+  margin:auto;
 }
 
-div.lastq {
-  height: 700px;
+#qb7{
+max-width: 300px;
+text-align: left;
+margin: auto;
 }
 
-div.mydiagram {
-  height: 400px;
-}
-
-#myDiagramDiv {
-  height: 200px;
-}
-
-
-
-button.button {
-  background-color: #ebe0ea;
-  border: .7px solid #cdb1cb;
-  border-radius: 3px;
-  padding: 2px 4px;
+#nav {
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  transition-duration: 0.4s;
+  margin-top: 1em;
 }
-
-button.button:hover, button.bigbutton:hover {
-  background-color: #cdb1cb;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-
-button.bigbutton {
-  background-color: #ebe0ea;
-  border: .7px solid #cdb1cb;
-  border-radius: 10px;
-  padding: 2px 4px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  transition-duration: 0.4s;
-  font-size: 140%;
-}
-
-div.dropdown {
-  width: 100%;
-  color: #000;
-  top: 100%;
-  left: 0;
-  right: 0;
-}
-
 button.nav_button {
   background-color: #ebe0ea;
   border: .7px solid #cdb1cb;
   border-radius: 3px;
   padding: 2px 4px;
-  align-content: center;
   text-decoration: none;
   display: inline-block;
   transition-duration: 0.4s;
+  font-size: 110%;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
 }
 
-button.nav_button:hover, button.bigbutton:hover {
+button.nav_button:hover{
   background-color: #cdb1cb;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-
-button.xx {
-  background-color: #ebe0ea;
-  border: .7px solid #cdb1cb;
-  border-radius: 10px;
-  padding: 2px 4px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  transition-duration: 0.4s;
-  font-size: 140%;
-}
-
-
-@-moz-document url-prefix(){
-	.ui-select{border: 1px solid #CCC; border-radius: 4px; box-sizing: border-box; position: relative; overflow: hidden;}
-  .ui-select select { width: 110%; background-position: right 30px center !important; border: none !important;}
 }
