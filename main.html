@@ -20,9 +20,7 @@
 <h1>UnStuck</h1>
 <h2>Action-Centric Panic Attack Success</h2>
 
-<p>
-heyyyyy.
-</p>
+<h4>Stuck? Anxious? Feeling frozen? Actively parse through your panic with this quick, easy and interactive activity.</h4>
 
 </div>
 </div>
@@ -50,13 +48,13 @@ heyyyyy.
 <div id="b3" class="bc qc">
 <h3>Take a moment to pinpoint symptoms: Where do you feel the tension?</h3>
 
-<input name="q3" id="q3" type="checkbox" value="1"> head <br>
-<input name="q3" id="q3" type="checkbox" value="2"> chest <br>
-<input name="q3" id="q3" type="checkbox" value="3"> face <br>
-<input name="q3" id="q3" type="checkbox" value="4"> stomach <br>
-<input name="q3" id="q3" type="checkbox" value="5"> throat / neck <br>
-<input name="q3" id="q3" type="checkbox" value="6"> it's mental <br>
-<input name="q3" id="q3" type="checkbox" value="0"> other <br>
+<input name="q3" class="q3" type="checkbox" value="1"> head <br>
+<input name="q3" class="q3" type="checkbox" value="2"> chest <br>
+<input name="q3" class="q3" type="checkbox" value="3"> face <br>
+<input name="q3" class="q3" type="checkbox" value="4"> stomach <br>
+<input name="q3" class="q3" type="checkbox" value="5"> throat / neck <br>
+<input name="q3" class="q3" type="checkbox" value="6"> it's mental <br>
+<input name="q3" class="q3" type="checkbox" value="0"> other <br>
 </div>
 <div id="b4" class="bc qc">
 <h3>The worst case scenario right now is ...</h3>
@@ -134,8 +132,8 @@ I am capable of overcoming this feeling.<br>
 </div>
 
 <div id="nav">
-<button onclick="change_page(false)">Previous</button>
-<button onclick="change_page(true)">Next</button>
+<button class='nav_button' onclick="change_page(false)">Previous</button>
+<button class='nav_button' onclick="change_page(true)">Next</button>
 </div>
 </div>
 <span id="test"><em></em></span>
@@ -146,6 +144,8 @@ I am capable of overcoming this feeling.<br>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/1.8.35/go-debug.js"></script>
 <!--<script src="/static/script.js"></script>-->
 <script src="/static/divtree.js"></script>
+
+
 
 <script>
     let lower_lim = 0;
@@ -186,6 +186,8 @@ $(document).ready(function () {
   $('.bc#b1').show();
      });
  </script>
+
+
 <script>
     function init() {
   if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
@@ -267,7 +269,7 @@ y = Math.max(y, v.node.position.y);
   });
 
                  };
-             </script>
+ </script>
 
 
 
