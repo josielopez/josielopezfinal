@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>UnStuck</title>
+  <link rel="stylesheet" href="unstuck.css">
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+</head>
+
+
+
+<body onload="init();">
+  <div id="container">
+
+<div id="b0" class="bc">
+
+<div id="tc">
+
+<h1>UnStuck</h1>
+<h2>Action-Centric Panic Attack Success</h2>
+
+<p>
+heyyyyy.
+</p>
+
+</div>
+</div>
+
+<div id="b1" class="bc qc">
+<h3>What's up?</h3>
+
+<select name="q1" id="q1">
+<option value="0">Work</option>
+<option value="1">School</option>
+<option value="2">Money</option>
+<option value="3">Bodily / Physical Sensation</option>
+<option value="4">Emotion</option>
+<option value="5">I Don't Know</option>
+</select>
+</div>
+
+<div id="b2" class="bc qc">
+<h3>Are You In Immediate Danger Right Now?</h3>
+
+<input name="q2" id="q2" type="radio" value="0">Yes<br>
+<input name="q2" id="q2" type="radio" value="1">No<br>
+</div>
+
+<div id="b3" class="bc qc">
+<h3>Take a moment to pinpoint symptoms: Where do you feel the tension?</h3>
+
+<input name="q3" id="q3" type="checkbox" value="1"> head <br>
+<input name="q3" id="q3" type="checkbox" value="2"> chest <br>
+<input name="q3" id="q3" type="checkbox" value="3"> face <br>
+<input name="q3" id="q3" type="checkbox" value="4"> stomach <br>
+<input name="q3" id="q3" type="checkbox" value="5"> throat / neck <br>
+<input name="q3" id="q3" type="checkbox" value="6"> it's mental <br>
+<input name="q3" id="q3" type="checkbox" value="0"> other <br>
+</div>
+<div id="b4" class="bc qc">
+<h3>The worst case scenario right now is ...</h3>
+
+<textarea name="worst_case" id="worst_case" cols="40" rows="3">
+
+</textarea>
+
+<h4><em>... in which case</em></h4>
+
+<textarea name="in_which" id="in_which" cols="40" rows="3">
+
+</textarea>
+</div>
+
+<div id="b5" class="bc qc">
+<h4>List 3 Options You Have Right Now</h4>
+<input type="text" id="q5a1">
+<input type="text" id="q5a2">
+<input type="text" id="q5a3">
+</div>
+
+<div id="b6" class="bc qc">
+<h4>Option A:</h4>
+
+<div id="q6a">
+This would require me to:
+<input id="q6a1"><br>
+<input id="q6a2"><br>
+<input id="q6a3"><br>
+</div>
+
+<h4>Option B:</h4>
+
+<div id="q6b">
+This would require me to:
+<input id="q6b1"><br>
+<input id="q6b2"><br>
+<input id="q6b3"><br>
+</div>
+
+<h4>Option C:</h4>
+
+<div id="q6c">
+This would require me to:
+<input id="qbc1"><br>
+<input id="q6c2"><br>
+<input id="q6c3"><br>
+</div>
+<br>
+</div>
+
+<div id="b7" class="bc qc">
+<h2>Let's Review</h2>
+
+<h3>Check All That Apply:</h3>
+
+<input type="checkbox" name="checkbox" value="0">
+I am not in immediate danger right now.<br>
+<input type="checkbox" name="checkbox" value="1">
+I have doable options that will ease the tension I'm feeling.<br>
+<input type="checkbox" name="checkbox" value="2">
+I am capable of overcoming this feeling.<br>
+</div>
+
+<div id="b8" class="bc qc">
+<h2>Tree</h2>
+
+<div id="sample" class='mydiagram'>
+<h3>My plan:
+(mind map)</h3>
+                               
+<div id="myDiagramDiv" style="border: solid 1px black; width:500px; height:500px"></div>
+</div>
+</div>
+
+<div id="nav">
+<button onclick="change_page(false)">Previous</button>
+<button onclick="change_page(true)">Next</button>
+</div>
+</div>
+<span id="test"><em></em></span>
+
+                 <!-- SCRIPTS jquery -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/1.8.35/go-debug.js"></script>
+<!--<script src="/static/script.js"></script>-->
+<script src="/static/divtree.js"></script>
+
+<script>
+    let lower_lim = 0;
+    let upper_lim = 10;
+
+    var page_index = 1; // page index
+    var last_index = 1;
+
+    function change_page(direction) { // either positive 1 or negative
+   last_index = page_index;
+    if (direction) {
+    if (page_index == upper_lim) {
+        return;
+          } else {
+          page_index += 1;
+          }
+          }
+        if (!direction) {
+        if (page_index == lower_lim) {
+        return;
+        } else {
+        page_index -= 1;}
+      }
+      if (last_index == page_index) {
+        return;
+                     }
+  else {
+     $('.bc').hide();
+
+   }
+   $('#b' + page_index).show();
+           // init_graph();
+    }
+
+$(document).ready(function () {
+
+  $('.bc').hide();
+  $('.bc#b1').show();
+     });
+ </script>
+<script>
+    function init() {
+  if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
+         var $ = go.GraphObject.make;  // for conciseness in defining templates
+          myDiagram =
+          $(go.Diagram, "myDiagramDiv",
+                             {
+                                 allowCopy: false,
+                                 allowDelete: false,
+                                 allowMove: false,
+                                 initialContentAlignment: go.Spot.Center,
+                                 initialAutoScale: go.Diagram.Uniform,
+                                 layout:
+                                     $(TreeLayout,  // custom Layout, defined below
+                                         {
+                                             angle: 270,
+                                             compaction: go.TreeLayout.CompactionNone
+                                         }),
+                                 "undoManager.isEnabled": true
+                             });
+                     myDiagram.nodeTemplate =
+                         $(go.Node, "Vertical",
+                             {selectionObjectName: "BODY"},
+                             $(go.Panel, "Auto", {name: "BODY"},
+                                 $(go.Shape, "RoundedRectangle",
+                                     new go.Binding("fill"),
+                                     new go.Binding("stroke")),
+                                 $(go.TextBlock,
+                                     {font: "bold 12pt Arial, sans-serif", margin: new go.Margin(5, 5, 5, 5)},
+                                     new go.Binding("text"))
+                             ),
+                             $(go.Panel,  // this is underneath the "BODY"
+                                 {height: 15},  // always this height, even if the TreeExpanderButton is not visible
+                                 $("TreeExpanderButton")
+                             )
+                         );
+                     myDiagram.linkTemplate =
+                         $(go.Link,
+                             $(go.Shape, {strokeWidth: 1.5}));
+                     // set up the nodeDataArray, describing each part of the sentence
+
+
+                     var nodeDataArray = [
+                         {key: 1, text: 'console', fill: "#f68c06", stroke: "#4d90fe"},
+
+                         // {key: 2, text: "solution 1", fill: "#f68c06", stroke: "#4d90fe", parent: 1},
+                         {key: 2, text: "solution 1", fill: "#f68c06", stroke: "#4d90fe", parent: 1},
+                         {key: 3, text: "action c", fill: "#ccc", stroke: "#4d90fe", parent: 2},
+                         {key: 4, text: "action b", fill: "#ccc", stroke: "#4d90fe", parent: 3},
+                         {key: 6, text: "action a", fill: "#ccc", stroke: "#4d90fe", parent: 4},
+                         {key: 14, text: "action c", fill: "#fef", stroke: "#fff", parent: 6},
+
+                         {key: 5, text: "solution 2", fill: "#f68c06", stroke: "#4d90fe", parent: 1},
+                         {key: 7, text: "action c", fill: "#ccc", stroke: "#4d90fe", parent: 5},
+                         {key: 8, text: "action b", fill: "#ccc", stroke: "#4d90fe", parent: 7},
+                         {key: 9, text: "action a", fill: "#ccc", stroke: "#4d90fe", parent: 8},
+                         {key: 15, text: "action c", fill: "#fff", stroke: "#fff", parent: 9},
+
+                         {key: 10, text: "solution 3", fill: "#f68c06", stroke: "#4d90fe", parent: 1},
+                         {key: 11, text: "action c", fill: "#ccc", stroke: "#4d90fe", parent: 10},
+                         {key: 12, text: "action b", fill: "#ccc", stroke: "#4d90fe", parent: 11},
+                         {key: 13, text: "action a", fill: "#ccc", stroke: "#4d90fe", parent: 12},
+                         {key: 16, text: "action c", fill: "#fff", stroke: "#fff", parent: 13},
+
+
+                     ];
+                     // create the Model with data for the tree, and assign to the Diagram
+                     myDiagram.model =
+                         $(go.TreeModel,
+                             {nodeDataArray: nodeDataArray});
+                 }
+
+                 // Customize the TreeLayout to position all of the leaf nodes at the same vertical Y position.
+                 function TreeLayout() {
+                     go.TreeLayout.call(this);  // call base constructor
+                 }
+
+                 go.Diagram.inherit(TreeLayout, go.TreeLayout);
+                 // This assumes the TreeLayout.angle is 90 -- growing downward
+                 /** @override */
+                 TreeLayout.prototype.commitLayout = function () {
+                     go.TreeLayout.prototype.commitLayout.call(this);  // call base method first
+                     // find maximum Y position of all Nodes
+                     var y = -Infinity;
+                     this.network.vertexes.each(function (v) {
+                         y = Math.max(y, v.node.position.y);
+                     });
+                     // move down all leaf nodes to that Y position, but keeping their X position
+             //    this.network.vertexes.each(function(v) {
+             //        if (v.destinationEdges.count === 0) {
+                     // shift the node down to Y
+             //          v.node.position = new go.Point(v.node.position.x, y);
+                     // extend the last segment vertically
+             //          v.node.toEndSegmentLength = Math.abs(v.centerY - y);
+             //        } else {  // restore to normal value
+             //          v.node.toEndSegmentLength = 10;
+             //        }
+             //      });
+                 };
+             </script>
+
+
+             <!--<style>-->
+             <!--@-moz-document url-prefix() {-->
+             <!--.ui-select {-->
+             <!--border: 1px solid #CCC;-->
+             <!--border-radius: 4px;-->
+             <!--box-sizing: border-box;-->
+             <!--position: relative;-->
+             <!--overflow: hidden;-->
+             <!--}-->
+             <!--  .ui-select select {-->
+             <!--width: 110%;-->
+             <!--background-position: right 30px center !important;-->
+             <!--border: none !important;-->
+             <!--}-->
+             <!--}-->
+             <!--</style>-->
+
+             <!-- other libraries ... -->
+             <!-- SCRIPTS your js filed -->
+
+
+
+
+</body>
+</html>
