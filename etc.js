@@ -12,7 +12,7 @@ $(document).ready(function() {
       $('#consolec').text($(this).val());
   });
 
-$(window).onload(function(){
+$(document).ready(function(){
 $("#b0").show();
 $('#b1').hide();
 });
