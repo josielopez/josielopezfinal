@@ -189,124 +189,85 @@ $(document).ready(function () {
 <script>
     function init() {
   if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
-         var $ = go.GraphObject.make;  // for conciseness in defining templates
-          myDiagram =
-          $(go.Diagram, "myDiagramDiv",
+   var $ = go.GraphObject.make;  // for conciseness in defining templates
+  myDiagram =
+  $(go.Diagram, "myDiagramDiv",
                              {
-                                 allowCopy: false,
-                                 allowDelete: false,
-                                 allowMove: false,
-                                 initialContentAlignment: go.Spot.Center,
-                                 initialAutoScale: go.Diagram.Uniform,
+           allowCopy: false,
+       allowDelete: false,
+       allowMove: false,
+     initialContentAlignment: go.Spot.Center,
+   initialAutoScale: go.Diagram.Uniform,
                                  layout:
-                                     $(TreeLayout,  // custom Layout, defined below
-                                         {
-                                             angle: 270,
-                                             compaction: go.TreeLayout.CompactionNone
-                                         }),
-                                 "undoManager.isEnabled": true
-                             });
-                     myDiagram.nodeTemplate =
-                         $(go.Node, "Vertical",
-                             {selectionObjectName: "BODY"},
-                             $(go.Panel, "Auto", {name: "BODY"},
-                                 $(go.Shape, "RoundedRectangle",
-                                     new go.Binding("fill"),
-                                     new go.Binding("stroke")),
-                                 $(go.TextBlock,
-                                     {font: "bold 12pt Arial, sans-serif", margin: new go.Margin(5, 5, 5, 5)},
+   $(TreeLayout,  // custom Layout, defined below
+   {
+     angle: 270,
+    compaction: go.TreeLayout.CompactionNone
+       }),
+   "undoManager.isEnabled": true
+     });
+  myDiagram.nodeTemplate =
+  $(go.Node, "Vertical",
+     {selectionObjectName: "BODY"},
+   $(go.Panel, "Auto", {name: "BODY"},
+$(go.Shape, "RoundedRectangle",
+  new go.Binding("fill"),
+new go.Binding("stroke")),
+   $(go.TextBlock,
+   {font: "bold 12pt Arial, sans-serif", margin: new go.Margin(5, 5, 5, 5)},
                                      new go.Binding("text"))
-                             ),
-                             $(go.Panel,  // this is underneath the "BODY"
-                                 {height: 15},  // always this height, even if the TreeExpanderButton is not visible
-                                 $("TreeExpanderButton")
-                             )
-                         );
-                     myDiagram.linkTemplate =
+  ),
+$(go.Panel,  
+   {height: 15}, 
+$("TreeExpanderButton")
+     )
+  );
+ myDiagram.linkTemplate =
                          $(go.Link,
                              $(go.Shape, {strokeWidth: 1.5}));
-                     // set up the nodeDataArray, describing each part of the sentence
 
-
-                     var nodeDataArray = [
+var nodeDataArray = [
                          {key: 1, text: 'console', fill: "#f68c06", stroke: "#4d90fe"},
 
-                         // {key: 2, text: "solution 1", fill: "#f68c06", stroke: "#4d90fe", parent: 1},
-                         {key: 2, text: "solution 1", fill: "#f68c06", stroke: "#4d90fe", parent: 1},
-                         {key: 3, text: "action c", fill: "#ccc", stroke: "#4d90fe", parent: 2},
-                         {key: 4, text: "action b", fill: "#ccc", stroke: "#4d90fe", parent: 3},
-                         {key: 6, text: "action a", fill: "#ccc", stroke: "#4d90fe", parent: 4},
-                         {key: 14, text: "action c", fill: "#fef", stroke: "#fff", parent: 6},
+ {key: 2, text: "solution 1", fill: "#f68c06", stroke: "#4d90fe", parent: 1},
+{key: 3, text: "action c", fill: "#ccc", stroke: "#4d90fe", parent: 2},
+{key: 4, text: "action b", fill: "#ccc", stroke: "#4d90fe", parent: 3},
+{key: 6, text: "action a", fill: "#ccc", stroke: "#4d90fe", parent: 4},
+{key: 14, text: "action c", fill: "#fef", stroke: "#fff", parent: 6},
 
-                         {key: 5, text: "solution 2", fill: "#f68c06", stroke: "#4d90fe", parent: 1},
-                         {key: 7, text: "action c", fill: "#ccc", stroke: "#4d90fe", parent: 5},
-                         {key: 8, text: "action b", fill: "#ccc", stroke: "#4d90fe", parent: 7},
-                         {key: 9, text: "action a", fill: "#ccc", stroke: "#4d90fe", parent: 8},
-                         {key: 15, text: "action c", fill: "#fff", stroke: "#fff", parent: 9},
+{key: 5, text: "solution 2", fill: "#f68c06", stroke: "#4d90fe", parent: 1},
+{key: 7, text: "action c", fill: "#ccc", stroke: "#4d90fe", parent: 5},
+ {key: 8, text: "action b", fill: "#ccc", stroke: "#4d90fe", parent: 7},
+{key: 9, text: "action a", fill: "#ccc", stroke: "#4d90fe", parent: 8},
+ {key: 15, text: "action c", fill: "#fff", stroke: "#fff", parent: 9},
 
-                         {key: 10, text: "solution 3", fill: "#f68c06", stroke: "#4d90fe", parent: 1},
-                         {key: 11, text: "action c", fill: "#ccc", stroke: "#4d90fe", parent: 10},
-                         {key: 12, text: "action b", fill: "#ccc", stroke: "#4d90fe", parent: 11},
-                         {key: 13, text: "action a", fill: "#ccc", stroke: "#4d90fe", parent: 12},
-                         {key: 16, text: "action c", fill: "#fff", stroke: "#fff", parent: 13},
+{key: 10, text: "solution 3", fill: "#f68c06", stroke: "#4d90fe", parent: 1},
+ {key: 11, text: "action c", fill: "#ccc", stroke: "#4d90fe", parent: 10},
+ {key: 12, text: "action b", fill: "#ccc", stroke: "#4d90fe", parent: 11},
+{key: 13, text: "action a", fill: "#ccc", stroke: "#4d90fe", parent: 12},
+ {key: 16, text: "action c", fill: "#fff", stroke: "#fff", parent: 13},
 
+];
 
-                     ];
-                     // create the Model with data for the tree, and assign to the Diagram
-                     myDiagram.model =
-                         $(go.TreeModel,
-                             {nodeDataArray: nodeDataArray});
-                 }
+myDiagram.model =
+  $(go.TreeModel,
+{nodeDataArray: nodeDataArray});
+}
 
-                 // Customize the TreeLayout to position all of the leaf nodes at the same vertical Y position.
-                 function TreeLayout() {
-                     go.TreeLayout.call(this);  // call base constructor
-                 }
+ function TreeLayout() {
+go.TreeLayout.call(this);
+}
 
-                 go.Diagram.inherit(TreeLayout, go.TreeLayout);
-                 // This assumes the TreeLayout.angle is 90 -- growing downward
-                 /** @override */
-                 TreeLayout.prototype.commitLayout = function () {
-                     go.TreeLayout.prototype.commitLayout.call(this);  // call base method first
-                     // find maximum Y position of all Nodes
-                     var y = -Infinity;
-                     this.network.vertexes.each(function (v) {
-                         y = Math.max(y, v.node.position.y);
-                     });
-                     // move down all leaf nodes to that Y position, but keeping their X position
-             //    this.network.vertexes.each(function(v) {
-             //        if (v.destinationEdges.count === 0) {
-                     // shift the node down to Y
-             //          v.node.position = new go.Point(v.node.position.x, y);
-                     // extend the last segment vertically
-             //          v.node.toEndSegmentLength = Math.abs(v.centerY - y);
-             //        } else {  // restore to normal value
-             //          v.node.toEndSegmentLength = 10;
-             //        }
-             //      });
+go.Diagram.inherit(TreeLayout, go.TreeLayout);
+TreeLayout.prototype.commitLayout = function () {
+go.TreeLayout.prototype.commitLayout.call(this);
+var y = -Infinity;
+this.network.vertexes.each(function (v) {
+y = Math.max(y, v.node.position.y);
+  });
+
                  };
              </script>
-
-
-             <!--<style>-->
-             <!--@-moz-document url-prefix() {-->
-             <!--.ui-select {-->
-             <!--border: 1px solid #CCC;-->
-             <!--border-radius: 4px;-->
-             <!--box-sizing: border-box;-->
-             <!--position: relative;-->
-             <!--overflow: hidden;-->
-             <!--}-->
-             <!--  .ui-select select {-->
-             <!--width: 110%;-->
-             <!--background-position: right 30px center !important;-->
-             <!--border: none !important;-->
-             <!--}-->
-             <!--}-->
-             <!--</style>-->
-
-             <!-- other libraries ... -->
-             <!-- SCRIPTS your js filed -->
 
 
 
