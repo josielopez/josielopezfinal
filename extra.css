@@ -1,3 +1,10 @@
+#container {
+  background-color: #f4decb;
+  max-width: 620px;
+  margin: auto;
+  padding:2.5rem;
+}
+
 body {
   background-color: #F8EEE7;
   color: #49274a;
@@ -52,13 +59,6 @@ fieldset {
     border: none;
     margin: auto;
     }
-
-#container {
-  background-color: #f4decb;
-  max-width: 620px;
-  margin: auto;
-  padding:2.5rem;
-}
 
 div.youknow {
 }

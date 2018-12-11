@@ -6,6 +6,15 @@ body {
   line-height: 23px;
   margin: auto;
 }
+
+#container {
+  background-color: #f4decb;
+  max-width: 620px;
+  margin: auto;
+  padding:2.5rem;
+}
+
+
 h1 {
     font-family: 'Fjalla One', sans-serif;
     color: #94618e;
@@ -37,13 +46,12 @@ h4 {
   color: #49274a;
   font-size: 16px;
   line-height: 23px;
-  margin-bottom: .5em;;
+  margin-bottom: .5em;
 }
 
 h5 {
   font-size: 70%;
-  margin-left: 4em;
-  margin-right: 4em;
+  line-height: 16px;
 }
 
 p {
@@ -53,20 +61,6 @@ p {
     margin: 0 0 23px 0;
     }
 
-fieldset {
-    padding: 0em;
-    border: none;
-    margin: auto;
-    }
-
-#container {
-  background-color: #f4decb;
-  max-width: 620px;
-  margin: auto;
-  padding:2.5rem;
-}
-
-
 #qb3 {
   max-width: 110px;
   text-align: left;
@@ -75,7 +69,7 @@ fieldset {
 
 
 div.bc, div.qc {
-  height: 300px;
+  height: auto;
   max-width: 550px;
   border: 7px solid #fff;
   border-radius: 40px;
@@ -87,7 +81,7 @@ div.bc, div.qc {
 }
 
 #q6a, #q6b, #q6c {
-  text-align: right;
+  margin: auto;
   max-width: 300px;
 }
 input {
@@ -97,7 +91,6 @@ input {
 #b6 {
   font-size: .8em;
   padding-top: 0;
-  padding-bottom: 100px;
   margin:auto;
 }
 
@@ -127,4 +120,8 @@ button.nav_button {
 button.nav_button:hover{
   background-color: #cdb1cb;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+::placeholder {
+  color: #dee;
 }

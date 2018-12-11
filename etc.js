@@ -12,9 +12,9 @@ $(document).ready(function() {
       $('#consolec').text($(this).val());
   });
 
-$(document).ready(function(){
-$("#b0").show();
-$('#b1').hide();
-});
+//$(document).ready(function(){
+//$("#b0").show();
+//$('#b1').hide();
+//});
 
 });
